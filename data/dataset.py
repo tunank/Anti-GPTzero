@@ -2,6 +2,9 @@ from torch.utils.data import Dataset
 import torch
 
 class TextHumanizerDataset(Dataset):
+    """
+    PyTorch Dataset for training the AI text humanizer model.
+    """
     def __init__(self, dataset, tokenizer, max_length=512):
         self.dataset = dataset
         self.tokenizer = tokenizer
@@ -11,6 +14,11 @@ class TextHumanizerDataset(Dataset):
         return len(self.dataset)
 
     def __getitem__(self, idx):
+        """
+        Get a single item from the dataset
+        :param idx: Index of the item
+        :return:
+        """
         item = self.dataset[idx]
 
         # Tokenize the AI text
